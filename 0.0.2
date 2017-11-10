@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 
-    int a,k; string line, o;
+    int a,k; string line, o, u;
 
     getline(cin, o);
 
@@ -31,7 +31,16 @@ int main() {
             return 0;
         }
     }
-    cin >> k;
+    
+    getline(cin, u);
+    istringstream stream1(u);
+    if (!(stream1 >> k)) {
+
+        cout << "An error has occuried while reading input data.";
+
+        return 0;
+    }
+    
     int l = 0;
     for (int y = k;y < a/2+k-1; y++) {
         swap(m[y],m[a-l-1]);l++;
