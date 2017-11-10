@@ -1,0 +1,40 @@
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+int main() {
+
+    int a; string line, o;
+
+    getline(cin, o);
+
+    istringstream stream(o);
+    if (!(stream >> a)) {
+
+        cout << "An error has occuried while reading input data.";
+
+        return 0;
+    }
+
+    getline(cin, line);
+
+    istringstream arr(line);
+
+    int *m = new int[a];
+
+    for (int i = 0; i < a; i++) {
+
+        if (!(arr >> m[i])) {
+
+            cout << "An error has occuried while reading input data.";
+
+            return 0;
+        }
+    }
+
+    for (int i = 0; i < a/2 ; i++) {
+        swap(m[i],m[a-i-1]);
+    }
+    for (int i = 0; i < a; i++) { cout << m[i] << ' '; }
+     return 0;
+}
